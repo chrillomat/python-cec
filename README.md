@@ -1,6 +1,6 @@
 # python-cec - libcec bindings for Python
 
-`python-cec` allows you to control your TV, reciever and other CEC-compliant HDMI devices from a python script on a computer. Most computer graphics cards don't support CEC; you'll need a [Pulse-Eight USB-CEC adapter](http://www.pulse-eight.com/store/products/104-usb-hdmi-cec-adapter.aspx) or a Raspberry Pi (Untested).
+`python-cec` allows you to control your TV, reciever and other CEC-compliant HDMI devices from a python script on a computer. Most computer graphics cards don't support CEC; you'll need a [Pulse-Eight USB-CEC adapter](http://www.pulse-eight.com/store/products/104-usb-hdmi-cec-adapter.aspx) or a Raspberry Pi (Untested). Another option would be an iMX6 powered device with HDMI-CEC such as Cubox-i or Hummingboard (or Wandboard with modified kernel and hardware).
 
 ## Installing:
 
@@ -33,12 +33,22 @@ sudo apt-get update
 sudo apt-get install python-dev build-essential libcec-dev cec-utils
 ```
 
+iMX6:
+
+Use with https://github.com/xbmc-imx6/libcec and build with different command (see below).
+
 ### Checkout, build and install
 
 ```
 git clone -b 0.2.2 https://github.com/trainman419/python-cec.git
 cd python-cec
 python setup.py install
+```
+iMX6:
+
+```
+python setup.py build_ext -L/usr/local/lib/
+sudo python setup.py install
 ```
 
 ## Getting Started
